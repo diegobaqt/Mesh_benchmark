@@ -24,6 +24,10 @@ import frames.primitives.*;
 import frames.core.*;
 import frames.processing.*;
 import java.util.Map;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 Scene scene;
 int flockWidth = 1280;
@@ -45,8 +49,11 @@ int initBoidNum = 100; // amount of boids to start the program with
 ArrayList<Boid> flock;
 Node avatar;
 boolean animate = true;
+boolean graphic_stat = true;
+PrintWriter output;
 
 void setup() {
+  System.out.println("Inicio ");
   size(1000, 800, P3D);
   scene = new Scene(this);
   scene.setBoundingBox(new Vector(0, 0, 0), new Vector(flockWidth, flockHeight, flockDepth));
@@ -61,6 +68,8 @@ void setup() {
   flock = new ArrayList();
   for (int i = 0; i < initBoidNum; i++)
     flock.add(new Boid(new Vector(flockWidth / 2, flockHeight / 2, flockDepth / 2)));
+  output = createWriter("stats.txt"); 
+  output.println("<Statisticts>");
 }
 
 void draw() {
@@ -72,6 +81,8 @@ void draw() {
   scene.traverse();
   showStats();
 }
+
+
  int xPos = 1;  
  float x1 = 0;
  float x2;
@@ -82,24 +93,28 @@ int value = 0;
 int increment = 2;
 float max = 0;
 float min = 1000;
+
 void showStats(){
    //SHOW STATS
-    textSize(28); 
+    
+   fill(204, 102, 0);
+   float inByte = map(frameRate, 0, 70, 0, height);
+   // draw the line:
+   
+   grafica.put(value,y1);
+   value++;
+   grafica.put(value,y2);
+   value++;
+   if (graphic_stat){
+     textSize(28); 
     fill(0, 102, 153);
     text("Frame rate: " + frameRate, 40, 60);
     text(" Max: "+max, 400, 60);
     text(" Min: "+min, 700, 60);
     text(" Birds: "+initBoidNum, 1000, 60);
-   fill(204, 102, 0);
-   float inByte = map(frameRate, 0, 70, 0, height);
-   // draw the line:
-   stroke(204);
-   grafica.put(value,y1);
-   value++;
-   grafica.put(value,y2);
-   value++;
-   for(int i = 1; i<grafica.size();i++){
-     line((i-1)*increment, grafica.get(i-1),(i)*increment, grafica.get(i));
+    stroke(204);
+     for(int i = 1; i<grafica.size();i++)
+       line((i-1)*increment, grafica.get(i-1),(i)*increment, grafica.get(i));
    }
    y1 = y2;
    y2 = height - inByte;
@@ -110,12 +125,13 @@ void showStats(){
    }else {
    // increment the horizontal position:
    xPos+=increment;
-   }
-   
+   }   
    if(value>2){
      if (max<frameRate) max=frameRate;
      if (min>frameRate) min=frameRate;
    }
+  output.println("f:" +frameRate );
+  output.flush();
    
 }
 
@@ -159,14 +175,21 @@ void keyPressed() {
   case 'v':
     avoidWalls = !avoidWalls;
     break;
+   case 'g':
+    graphic_stat = !graphic_stat;
+    break;
   case 'i':
     immediateMode = immediateMode == 0 ? 1 : 0;
+     if (immediateMode==1) output.println("Change to inmediate");
+     if (immediateMode==0) output.println("Change to retenido");
     break;
   case 'm':
     mode = mode < 3 ? mode+1 : 0;
-    break;
+      break;  
   case 'x':
     vertexVertexRepresentation = vertexVertexRepresentation == 0 ? 1 : 0;
+    if (vertexVertexRepresentation==1) output.println("Change to vertex-vertex");
+    if (vertexVertexRepresentation==0) output.println("Change to Face-vertex");
     break;
   case ' ':
     if (scene.eye().reference() != null) {
