@@ -152,7 +152,7 @@ class Boid {
     //scene.drawAxes(10);
 
     int kind = TRIANGLES;
-    strokeWeight(2);
+    strokeWeight(1);
     stroke(color(0, 255, 0));
     fill(color(255, 0, 0, 125));
 
@@ -184,10 +184,13 @@ class Boid {
     
     //draw boid
     beginShape(kind);
-    VertexVertex vertexVertex = new VertexVertex(sc);
-    FaceVertex faceVertex = new FaceVertex(sc);
-    //vertexVertex.draw();
-    faceVertex.draw();
+    if(vertexVertexRepresentation == 1){
+      VertexVertex vertexVertex = new VertexVertex(sc);
+      vertexVertex.draw();
+    } else {
+      FaceVertex faceVertex = new FaceVertex(sc);
+      faceVertex.draw();
+    }
     endShape();
 
   }  

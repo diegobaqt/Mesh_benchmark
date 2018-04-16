@@ -38,8 +38,9 @@ boolean avoidWalls = true;
 
 int mode;
 int immediateMode;
+int vertexVertexRepresentation;
 
-int initBoidNum = 20; // amount of boids to start the program with
+int initBoidNum = 100; // amount of boids to start the program with
 ArrayList<Boid> flock;
 Node avatar;
 boolean animate = true;
@@ -111,13 +112,13 @@ void keyPressed() {
     avoidWalls = !avoidWalls;
     break;
   case 'i':
-    immediateMode = 1;
-    break;
-  case 'r':
-    immediateMode = 0;
+    immediateMode = immediateMode == 0 ? 1 : 0;
     break;
   case 'm':
     mode = mode < 3 ? mode+1 : 0;
+    break;
+  case 'x':
+    vertexVertexRepresentation = vertexVertexRepresentation == 0 ? 1 : 0;
     break;
   case ' ':
     if (scene.eye().reference() != null) {

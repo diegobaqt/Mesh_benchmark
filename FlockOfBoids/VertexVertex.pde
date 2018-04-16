@@ -240,6 +240,7 @@ class VertexVertex extends IRepresentation {
   }
   
   void buildShape(){
+    System.out.println("Modo Retenido Vertex-Vertex");
     shape = createShape(GROUP);
     PShape firstSlice = createShape();
     firstSlice.beginShape(TRIANGLE);
@@ -251,6 +252,7 @@ class VertexVertex extends IRepresentation {
   }
   
   void drawImmediate(){
+    System.out.println("y Modo Inmediato Vertex-Vertex");
     beginShape(TRIANGLE);
     for(Vector vertice : vertices) {
       vertex(vertice.x()*sc, vertice.y()*sc, vertice.z()*sc);

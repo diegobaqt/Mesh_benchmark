@@ -669,7 +669,7 @@ class FaceVertex extends IRepresentation {
   
   void buildShape(){
     shape = createShape(GROUP);
-    System.out.println("Modo Retenido");
+    System.out.println("Modo Retenido Face-Vertex");
     PShape firstSlice = createShape();
     firstSlice.beginShape(TRIANGLE);
     for(Vector f : faces){
@@ -685,7 +685,7 @@ class FaceVertex extends IRepresentation {
   }
   
   void drawImmediate(){
-    System.out.println("Modo Inmediato");
+    System.out.println("y Modo Inmediato Face-Vertex");
     beginShape(TRIANGLE);
     //new SHAPE
     for(Vector f : faces){
