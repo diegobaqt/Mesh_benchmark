@@ -15,7 +15,8 @@
  * Press 't' to shift timers: sequential and parallel.
  * Press 'v' to toggle boids' wall skipping.
  * Press 's' to call scene.fitBallInterpolation().
- * Modes: i for Processing immediate mode; r for Processing retained mode;
+ * Press 'i' to toggle (for Processing immediate mode/for Processing retained mode).
+ * Press 'x' to toggle representation (Face-Vertex/Vertex-Vertex).
  */
 
 import frames.input.*;
