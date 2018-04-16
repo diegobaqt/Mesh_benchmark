@@ -23,6 +23,7 @@ import frames.input.event.*;
 import frames.primitives.*;
 import frames.core.*;
 import frames.processing.*;
+import java.util.Map;
 
 Scene scene;
 int flockWidth = 1280;
@@ -69,6 +70,53 @@ void draw() {
   walls();
   // Calls Node.visit() on all scene nodes.
   scene.traverse();
+  showStats();
+}
+ int xPos = 1;  
+ float x1 = 0;
+ float x2;
+ float y1;
+ float y2 = height / 2;
+Map<Integer,Float> grafica = new HashMap<Integer,Float>();
+int value = 0;
+int increment = 2;
+float max = 0;
+float min = 1000;
+void showStats(){
+   //SHOW STATS
+    textSize(28); 
+    fill(0, 102, 153);
+    text("Frame rate: " + frameRate, 40, 60);
+    text(" Max: "+max, 400, 60);
+    text(" Min: "+min, 700, 60);
+    text(" Birds: "+initBoidNum, 1000, 60);
+   fill(204, 102, 0);
+   float inByte = map(frameRate, 0, 70, 0, height);
+   // draw the line:
+   stroke(204);
+   grafica.put(value,y1);
+   value++;
+   grafica.put(value,y2);
+   value++;
+   for(int i = 1; i<grafica.size();i++){
+     line((i-1)*increment, grafica.get(i-1),(i)*increment, grafica.get(i));
+   }
+   y1 = y2;
+   y2 = height - inByte;
+   // at the edge of the screen, go back to the beginning:
+   if (xPos >= flockDepth+30) {
+   xPos = 0;
+   value = 0;
+   }else {
+   // increment the horizontal position:
+   xPos+=increment;
+   }
+   
+   if(value>2){
+     if (max<frameRate) max=frameRate;
+     if (min>frameRate) min=frameRate;
+   }
+   
 }
 
 void walls() {
