@@ -44,7 +44,12 @@ Complete la tabla:
 
 ### Benchmark
 
-1.
+|  Representación  |   Modo   |Valor (fps)|
+|-----------------------------------------|
+|Face-Vertex       |Retenido  |18.977     |
+|Face-Vertex       |Inmediato |12.867     |
+|Vertex-Vertex     |Retenido  |57.6908    |
+|Vertex-Vertex     |Inmediato |49.3938    |
 
 ### Conclusiones
 
