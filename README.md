@@ -42,6 +42,18 @@ Complete la tabla:
 | Diego Andrés Baquero     | [diegobaqt](https://github.com/diegobaqt)                |
 | Andrés Felipe López      | [andreslopzi](https://github.com/andreslopzi)            |
 
+### DEMO
+
+A continuación, se presentan dos capturas de imagen de los modos que mejor desempeño tuvieron.
+
+Por un lado, se tiene el modo 2 (noStroke).
+
+![Modo 2. noStroke](1.JPG)
+
+Por otro lado, se muesta una representación Face-Vertex para el modo 1 (noFill).
+
+![Modo 1. noFill](2.JPG)
+
 ### Benchmark
 
 |   Representación  |    Modo   | Valor (fps)|
