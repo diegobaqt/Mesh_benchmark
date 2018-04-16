@@ -48,8 +48,8 @@ Complete la tabla:
 
 ### Conclusiones
 
-1. 
-2. 
+1. De acuerdo a las implementaciones que se realizaron sobre las representaciones Vertex-Vertex y Face-Vertex, se puede observar que los tiempos de respuesta para la representación Vertex-Vertex es más rápida.
+2. El Modo Retenido obtiene tiempos más favorables en comparación con el modo inmediato.
 3. 
 
 ## Entrega
