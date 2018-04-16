@@ -49,8 +49,10 @@ Complete la tabla:
 ### Conclusiones
 
 1. De acuerdo a las implementaciones que se realizaron sobre las representaciones Vertex-Vertex y Face-Vertex, se puede observar que los tiempos de respuesta para la representación Vertex-Vertex es más rápida.
-2. El Modo Retenido obtiene tiempos más favorables en comparación con el modo inmediato.
-3. 
+
+2. El Modo Retenido obtiene tiempos más favorables en comparación con el modo inmediato, esto debido a la complejidad del elemento Boid que se está renderizando.
+
+3. Se tomaron tiempos para los diferentes modos implementados en [FlockOfBoids](https://github.com/VisualComputing/framesjs/tree/processing/examples/Advanced/FlockOfBoids) y se concluye que los modos con tiempo de respues más rápidos son: 2 y 1, los cuales muestran solo las caras (noStroke) y solo las aristas (noFill), respectivamente. Adicionalmente, el modo 3, encargado de mostrar sólo los vértices mostró un desempeño significativamente bajo frente a los demás.
 
 ## Entrega
 
