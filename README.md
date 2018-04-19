@@ -42,15 +42,34 @@ Complete la tabla:
 | Diego Andrés Baquero     | [diegobaqt](https://github.com/diegobaqt)                |
 | Andrés Felipe López      | [andreslopzi](https://github.com/andreslopzi)            |
 
+### DEMO
+
+A continuación, se presentan dos capturas de imagen de los modos que mejor desempeño tuvieron.
+
+Por un lado, se tiene el modo 2 (noStroke).
+
+![Modo 2. noStroke](1.JPG)
+
+Por otro lado, se muesta una representación Face-Vertex para el modo 1 (noFill).
+
+![Modo 1. noFill](2.JPG)
+
 ### Benchmark
 
-1.
+|   Representación  |    Modo   | Valor (fps)|
+|-------------------|-----------|------------|
+| Face-Vertex       | Retenido  | 18.977     |
+| Face-Vertex       | Inmediato | 12.867     |
+| Vertex-Vertex     | Retenido  | 57.6908    |
+| Vertex-Vertex     | Inmediato | 49.3938    |
 
 ### Conclusiones
 
-1. 
-2. 
-3. 
+1. De acuerdo a las implementaciones que se realizaron sobre las representaciones Vertex-Vertex y Face-Vertex, se puede observar que los tiempos de respuesta para la representación Vertex-Vertex es más rápida.
+
+2. El Modo Retenido obtiene tiempos más favorables en comparación con el modo inmediato, esto debido a la complejidad del elemento Boid que se está renderizando.
+
+3. Se tomaron tiempos para los diferentes modos implementados en [FlockOfBoids](https://github.com/VisualComputing/framesjs/tree/processing/examples/Advanced/FlockOfBoids) y se concluye que los modos con tiempo de respues más rápidos son: 2 y 1, los cuales muestran solo las caras (noStroke) y solo las aristas (noFill), respectivamente. Adicionalmente, el modo 3, encargado de mostrar sólo los vértices mostró un desempeño significativamente bajo frente a los demás.
 
 ## Entrega
 

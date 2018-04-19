@@ -15,7 +15,8 @@
  * Press 't' to shift timers: sequential and parallel.
  * Press 'v' to toggle boids' wall skipping.
  * Press 's' to call scene.fitBallInterpolation().
- * Modes: i for Processing immediate mode; r for Processing retained mode;
+ * Press 'i' to toggle (for Processing immediate mode/for Processing retained mode).
+ * Press 'x' to toggle representation (Face-Vertex/Vertex-Vertex).
  */
 
 import frames.input.*;
@@ -69,7 +70,7 @@ void setup() {
   for (int i = 0; i < initBoidNum; i++)
     flock.add(new Boid(new Vector(flockWidth / 2, flockHeight / 2, flockDepth / 2)));
   output = createWriter("stats.txt"); 
-  output.println("<Statisticts>");
+  output.println("<<Statisticts>>");
 }
 
 void draw() {
